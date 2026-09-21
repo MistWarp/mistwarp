@@ -1,0 +1,37 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Start Docs Development Server",
+			"type": "shell",
+			"command": "npm start",
+			"group": "test",
+			"isBackground": true,
+			"problemMatcher": []
+		},
+		{
+			"label": "debug:dump-boolean-number-comparison",
+			"type": "shell",
+			"command": "cd scratch-vm && python3 -c \"import zipfile,json; z=zipfile.ZipFile('test/fixtures/execute/tw-forkphorus-515-boolean-number-comparison.sb3'); p=json.loads(z.read('project.json')); blocks=next(t for t in p['targets'] if t['name']=='Sprite1')['blocks']; ids=['e','f','g','h']; refs=sorted({inp[1] for cid in ids for inp in blocks[cid].get('inputs',{}).values() if isinstance(inp,list) and isinstance(inp[1],str)}); all_ids=ids+refs; slim=lambda b:{'opcode':b.get('opcode'),'inputs':b.get('inputs'),'fields':b.get('fields')}; print(json.dumps({i:slim(blocks[i]) for i in all_ids}, indent=2))\"",
+			"isBackground": false
+		},
+		{
+			"label": "debug:dump-boolean-number-comparison-brief",
+			"type": "shell",
+			"command": "cd scratch-vm && python3 -c \"import zipfile,json; z=zipfile.ZipFile('test/fixtures/execute/tw-forkphorus-515-boolean-number-comparison.sb3'); p=json.loads(z.read('project.json')); blocks=next(t for t in p['targets'] if t['name']=='Sprite1')['blocks']; ids=['e','f','g','h'];\nfor cid in ids:\n b=blocks[cid]; print('COND',cid,b.get('opcode'));\n for k,inp in (b.get('inputs') or {}).items():\n  ref=inp[1] if isinstance(inp,list) and len(inp)>1 else None;\n  if isinstance(ref,str):\n   rb=blocks[ref]; print(' ',k,'->',ref,rb.get('opcode'),rb.get('fields'));\n   for k2,inp2 in (rb.get('inputs') or {}).items():\n    ref2=inp2[1] if isinstance(inp2,list) and len(inp2)>1 else None;\n    if isinstance(ref2,str):\n     r2=blocks[ref2]; print('    ',k2,'->',ref2,r2.get('opcode'),r2.get('fields'));\n  else:\n   print(' ',k,'->',ref)\n\"",
+			"isBackground": false
+		},
+		{
+			"label": "debug:dump-boolean-number-comparison-e",
+			"type": "shell",
+			"command": "cd scratch-vm && python3 -c \"import zipfile,json; z=zipfile.ZipFile('test/fixtures/execute/tw-forkphorus-515-boolean-number-comparison.sb3'); p=json.loads(z.read('project.json')); blocks=next(t for t in p['targets'] if t['name']=='Sprite1')['blocks']; cid='e'; b=blocks[cid]; print('COND',cid,b.get('opcode')); \nfor k,inp in (b.get('inputs') or {}).items():\n ref=inp[1] if isinstance(inp,list) and len(inp)>1 else None; \n if isinstance(ref,str):\n  rb=blocks[ref]; print(' ',k,'->',ref,rb.get('opcode'),rb.get('fields')); \n  for k2,inp2 in (rb.get('inputs') or {}).items():\n   ref2=inp2[1] if isinstance(inp2,list) and len(inp2)>1 else None; \n   if isinstance(ref2,str):\n    r2=blocks[ref2]; print('    ',k2,'->',ref2,r2.get('opcode'),r2.get('fields')); \n else:\n  print(' ',k,'->',ref)\n\"",
+			"isBackground": false
+		},
+		{
+			"label": "debug:dump-boolean-number-comparison-operands",
+			"type": "shell",
+			"command": "cd scratch-vm && python3 -c \"import zipfile,json; z=zipfile.ZipFile('test/fixtures/execute/tw-forkphorus-515-boolean-number-comparison.sb3'); p=json.loads(z.read('project.json')); blocks=next(t for t in p['targets'] if t['name']=='Sprite1')['blocks']; ids=['p','q','r','s','t','u','v','w']; slim=lambda b:{'opcode':b.get('opcode'),'inputs':b.get('inputs'),'fields':b.get('fields')}; print(json.dumps({i:slim(blocks[i]) for i in ids}, indent=2))\"",
+			"isBackground": false
+		}
+	]
+}

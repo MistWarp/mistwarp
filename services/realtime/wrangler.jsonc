@@ -1,0 +1,35 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "mistwarp-realtime",
+  "main": "src/index.js",
+  "compatibility_date": "2026-08-23",
+  "workers_dev": true,
+  "routes": [
+    {
+      "pattern": "api.mistwarp.org/v1/connect*",
+      "zone_name": "mistwarp.org"
+    },
+    {
+      "pattern": "mwapi.mistium.com/v1/connect*",
+      "zone_name": "mistium.com"
+    }
+  ],
+  "vars": {
+    "ALLOWED_ORIGINS": "https://mistwarp.org,https://warp.mistium.com",
+    "API_URL": "https://api.mistwarp.org/v1"
+  },
+  "durable_objects": {
+    "bindings": [
+      {
+        "name": "ROOMS",
+        "class_name": "GameRoom"
+      }
+    ]
+  },
+  "migrations": [
+    {
+      "tag": "v1",
+      "new_sqlite_classes": ["GameRoom"]
+    }
+  ]
+}
