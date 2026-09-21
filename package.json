@@ -1,0 +1,14 @@
+{
+  "name": "mistwarp",
+  "private": true,
+  "description": "Meta-repository tying together the MistWarp projects as pinned submodules",
+  "scripts": {
+    "setup": "git submodule update --init --recursive",
+    "sync": "git submodule update --remote --merge",
+    "status": "git submodule foreach --quiet 'echo \"$displaypath  $(git rev-parse --abbrev-ref HEAD)  $(git rev-parse --short HEAD)\"'",
+    "install:all": "bash scripts/foreach.sh install",
+    "build:all": "bash scripts/foreach.sh build",
+    "test:all": "bash scripts/foreach.sh test",
+    "each": "bash scripts/foreach.sh"
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "mistwarp-status",
+  "main": "src/index.js",
+  "compatibility_date": "2026-08-23",
+  "workers_dev": true,
+  "routes": [
+    {
+      "pattern": "status.warp.mistium.com",
+      "custom_domain": true
+    }
+  ],
+  "triggers": {
+    "crons": [
+      "*/5 * * * *"
+    ]
+  },
+  "vars": {
+    "ALLOWED_ORIGINS": "https://mistwarp.org,https://warp.mistium.com",
+    "CHECKS_JSON": "[{\"id\":\"website\",\"name\":\"Community website\",\"url\":\"https://mistwarp.org/\",\"method\":\"HEAD\"},{\"id\":\"api\",\"name\":\"MistWarp API\",\"url\":\"https://api.mistwarp.org/v1/health\"},{\"id\":\"rotur\",\"name\":\"Rotur sign-in\",\"url\":\"https://api.rotur.dev/profile/mist\"},{\"id\":\"gitea\",\"name\":\"Git and pull requests\",\"url\":\"https://git.rotur.dev/api/v1/version\"}]"
+  },
+  "kv_namespaces": [
+    {
+      "binding": "STATUS_KV",
+      "id": "c3262b05719a4e7eb34caf1de6c3eae6"
+    }
+  ]
+}

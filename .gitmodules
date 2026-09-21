@@ -1,0 +1,48 @@
+[submodule "packages/scratch-audio"]
+	path = packages/scratch-audio
+	url = https://github.com/MistWarp/scratch-audio.git
+	branch = develop
+[submodule "packages/scratch-blocks"]
+	path = packages/scratch-blocks
+	url = https://github.com/MistWarp/scratch-blocks.git
+	branch = develop
+[submodule "packages/scratch-gui"]
+	path = packages/scratch-gui
+	url = https://github.com/MistWarp/scratch-gui.git
+	branch = develop
+[submodule "packages/scratch-paint"]
+	path = packages/scratch-paint
+	url = https://github.com/MistWarp/scratch-paint.git
+	branch = develop
+[submodule "packages/scratch-render"]
+	path = packages/scratch-render
+	url = https://github.com/MistWarp/scratch-render.git
+	branch = develop
+[submodule "packages/scratch-vm"]
+	path = packages/scratch-vm
+	url = https://github.com/MistWarp/scratch-vm.git
+	branch = develop
+[submodule "apps/docs"]
+	path = apps/docs
+	url = https://github.com/MistWarp/docs.git
+	branch = master
+[submodule "apps/packager"]
+	path = apps/packager
+	url = https://github.com/MistWarp/packager.git
+	branch = master
+[submodule "apps/unpackager"]
+	path = apps/unpackager
+	url = https://github.com/MistWarp/unpackager.git
+	branch = main
+[submodule "apps/desktop"]
+	path = apps/desktop
+	url = https://github.com/MistWarp/desktop.git
+	branch = master
+[submodule "services/api"]
+	path = services/api
+	url = https://github.com/MistWarp/api.git
+	branch = main
+[submodule "services/warptheme"]
+	path = services/warptheme
+	url = https://github.com/MistWarp/warptheme.git
+	branch = main
